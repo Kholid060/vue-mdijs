@@ -1,7 +1,7 @@
 import camelcase from 'lodash.camelcase';
 
 export default {
-  name: 'mdi-icon',
+  name: 'v-mdi',
   props: {
     name: String,
     title: String,

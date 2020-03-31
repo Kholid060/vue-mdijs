@@ -1,13 +1,24 @@
 {
   "name": "vue-mdijs",
-  "version": "1.0.0",
+  "version": "0.9.0",
   "description": "Vue component wrapper for @mdi/js",
+  "keywords": [
+    "vue",
+    "vue-component",
+    "icon",
+    "mdi"
+  ],
+  "homepage": "https://github.com/Kholid060/vue-mdijs",
+  "bugs": "https://github.com/Kholid060/vue-mdijs/issues",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com/Kholid060/vue-mdijs.git"
+  },
   "scripts":{
   	"build": "rollup --config scripts/rollup.build.js"
   },
   "main": "dist/vue-meta.umd.js",
   "module": "dist/vue-meta.esm.js",
-  "repository": "https://github.com/Kholid060/vue-mdijs",
   "author": "Ahmad Kholid <Kholid060@gmail.com>",
   "license": "MIT",
   "private": false,
