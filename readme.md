@@ -35,7 +35,7 @@ app.vue
 ## Props
 
 |  Name | Description | Type | Default | Accepted values |
-|---|---|---| --- |
+|---|---|--- | --- | --- |
 |`name`  | String  | `String` | `null`  | - |
 |  `size` | Icon size  | `String`, `Number` | `24` | - |
 | `title` | A11y SVG Title | `String` | `null` | - |
