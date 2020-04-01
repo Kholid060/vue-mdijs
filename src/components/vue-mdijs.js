@@ -44,7 +44,7 @@ export default {
           fill: this.fill,
         },
         style:{
-        	transform: rotate(`${this.rotate}deg`)
+        	transform: `rotate(${this.rotate}deg)`
         },
         class: ['mdi-icon'],
         on: this.$listeners,
