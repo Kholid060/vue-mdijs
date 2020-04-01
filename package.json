@@ -1,6 +1,6 @@
 {
   "name": "vue-mdijs",
-  "version": "0.9.11",
+  "version": "0.9.12",
   "description": "Vue component wrapper for @mdi/js",
   "keywords": [
     "vue",
@@ -23,10 +23,10 @@
   "license": "MIT",
   "private": false,
   "devDependencies": {
-    "@mdi/js": "^5.0.45",
     "jest": "^25.2.4"
   },
   "dependencies": {
+    "@mdi/js": "^5.0.45",
     "lodash.camelcase": "^4.3.0"
   }
 }
