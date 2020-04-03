@@ -1,7 +1,7 @@
 import camelcase from 'lodash.camelcase';
 
 var VueMdi = {
-  name: 'mdi-icon',
+  name: 'v-mdi',
   props: {
     name: String,
     title: String,
@@ -44,7 +44,7 @@ var VueMdi = {
           fill: this.fill,
         },
         style:{
-        	transform: rotate(`${this.rotate}deg`)
+        	transform: `rotate(${this.rotate}deg)`
         },
         class: ['mdi-icon'],
         on: this.$listeners,

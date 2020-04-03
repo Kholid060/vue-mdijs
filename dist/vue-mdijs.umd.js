@@ -7,7 +7,7 @@
   camelcase = camelcase && Object.prototype.hasOwnProperty.call(camelcase, 'default') ? camelcase['default'] : camelcase;
 
   var VueMdi = {
-    name: 'mdi-icon',
+    name: 'v-mdi',
     props: {
       name: String,
       title: String,
@@ -50,7 +50,7 @@
             fill: this.fill,
           },
           style:{
-          	transform: rotate(`${this.rotate}deg`)
+          	transform: `rotate(${this.rotate}deg)`
           },
           class: ['mdi-icon'],
           on: this.$listeners,

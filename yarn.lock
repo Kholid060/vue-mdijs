@@ -3168,13 +3168,6 @@ verror@1.10.0:
     core-util-is "1.0.2"
     extsprintf "^1.2.0"
 
-vue-mdijs@0.9.13:
-  version "0.9.13"
-  resolved "https://registry.yarnpkg.com/vue-mdijs/-/vue-mdijs-0.9.13.tgz#4156f472f1328e12e0a29482c2a02db513b2862d"
-  integrity sha512-7c/BQz0p+JtuzfjPinlat+Abzz2ioJKJjwDlDIFpTdRpKDwrsdz6JY6lHcaZ8Tm63POsDLxDaNmi2vp2N0j/YA==
-  dependencies:
-    lodash.camelcase "^4.3.0"
-
 w3c-hr-time@^1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/w3c-hr-time/-/w3c-hr-time-1.0.2.tgz#0a89cdf5cc15822df9c360543676963e0cc308cd"
