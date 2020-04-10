@@ -1,8 +1,8 @@
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('lodash.camelcase')) :
-  typeof define === 'function' && define.amd ? define(['lodash.camelcase'], factory) :
-  (global = global || self, global['vue-mdijs'] = factory(global.camelcase));
-}(this, (function (camelcase) { 'use strict';
+  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('lodash.camelcase')) :
+  typeof define === 'function' && define.amd ? define(['exports', 'lodash.camelcase'], factory) :
+  (global = global || self, factory(global['vue-mdijs'] = {}, global.camelcase));
+}(this, (function (exports, camelcase) { 'use strict';
 
   camelcase = camelcase && Object.prototype.hasOwnProperty.call(camelcase, 'default') ? camelcase['default'] : camelcase;
 
@@ -19,7 +19,11 @@
         type: String,
         default: 'currentColor',
       },
-      rotate: Number,
+      path: String,
+      rotate: {
+        type: Number,
+        default: 0
+      },
     },
     lib: {},
     add(icons) {
@@ -30,10 +34,7 @@
     computed: {
       getIcon() {
         const icon = this.$options.lib[camelcase(this.name)];
-
-        if (icon) {
-          return icon;
-        }
+        if (icon) return icon
 
         console.error(`Can't find ${this.name} icon`);
         return undefined;
@@ -50,7 +51,8 @@
             fill: this.fill,
           },
           style:{
-          	transform: `rotate(${this.rotate}deg)`
+          	transform: `rotate(${this.rotate}deg)`,
+            display: 'inline-block'
           },
           class: ['mdi-icon'],
           on: this.$listeners,
@@ -59,13 +61,15 @@
           this.title ? h('title', this.title) : '',
           h('path', {
             attrs: {
-              d: this.getIcon,
+              d: !!this.path ? this.path : this.getIcon,
             },
           }),
         ]
       );
     },
   };
+
+  const VMdi = VueMdi;
 
   var index = {
   	install(Vue){
@@ -76,6 +80,9 @@
   	}
   };
 
-  return index;
+  exports.VMdi = VMdi;
+  exports.default = index;
+
+  Object.defineProperty(exports, '__esModule', { value: true });
 
 })));

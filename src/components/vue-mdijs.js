@@ -13,7 +13,11 @@ export default {
       type: String,
       default: 'currentColor',
     },
-    rotate: Number,
+    path: String,
+    rotate: {
+      type: Number,
+      default: 0
+    },
   },
   lib: {},
   add(icons) {
@@ -24,10 +28,7 @@ export default {
   computed: {
     getIcon() {
       const icon = this.$options.lib[camelcase(this.name)];
-
-      if (icon) {
-        return icon;
-      }
+      if (icon) return icon
 
       console.error(`Can't find ${this.name} icon`);
       return undefined;
@@ -44,7 +45,8 @@ export default {
           fill: this.fill,
         },
         style:{
-        	transform: `rotate(${this.rotate}deg)`
+        	transform: `rotate(${this.rotate}deg)`,
+          display: 'inline-block'
         },
         class: ['mdi-icon'],
         on: this.$listeners,
@@ -53,7 +55,7 @@ export default {
         this.title ? h('title', this.title) : '',
         h('path', {
           attrs: {
-            d: this.getIcon,
+            d: !!this.path ? this.path : this.getIcon,
           },
         }),
       ]
