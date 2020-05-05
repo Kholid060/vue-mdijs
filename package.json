@@ -24,7 +24,7 @@
   "private": false,
   "devDependencies": {
     "@mdi/js": "^5.0.45",
-    "jest": "^25.2.4"
+    "jest": "^26.0.0"
   },
   "dependencies": {
     "lodash.camelcase": "^4.3.0"
