@@ -6,10 +6,10 @@ Vue component wrapper for [@mdi/js](https://www.npmjs.com/package/@mdi/js)
 ## Installation
 ```
 // NPM
-npm i vue-mdijs
+npm i @mdi/js vue-mdijs
 
 // Yarn
-yarn add vue-mdijs
+yarn add @mdi/js vue-mdijs
 ```
 
 ## Usage
