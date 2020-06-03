@@ -13,7 +13,6 @@ export default {
       type: String,
       default: 'currentColor',
     },
-    path: String,
     rotate: {
       type: Number,
       default: 0
@@ -21,20 +20,19 @@ export default {
   },
   lib: {},
   add(icons) {
-    if (typeof icons === 'object' && Object.keys(icons).length !== 0) {
+    if (typeof icons === 'object' && icons !== null) {
       this.lib = icons;
     }
   },
-  computed: {
-    getIcon() {
-      const icon = this.$options.lib[camelcase(this.name)];
-      if (icon) return icon
-
-      console.error(`Can't find ${this.name} icon`);
-      return undefined;
-    },
-  },
   render(h) {
+    const icon = this.$options.lib[camelcase(this.name)];
+
+    if (typeof icon === 'undefined') {
+      console.error('Name of the icon is not correct')
+
+      return;
+    }
+
     return h(
       'svg',
       {
@@ -55,7 +53,7 @@ export default {
         this.title ? h('title', this.title) : '',
         h('path', {
           attrs: {
-            d: !!this.path ? this.path : this.getIcon,
+            d: icon,
           },
         }),
       ]
