@@ -16,7 +16,7 @@
   },
   "scripts": {
     "build": "rollup --config scripts/rollup.build.js",
-    "publish": "npm run build && npm publish"
+    "publish-package": "npm run build && npm publish"
   },
   "main": "dist/vue-mdijs.umd.js",
   "module": "dist/vue-mdijs.esm.js",
