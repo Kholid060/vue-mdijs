@@ -34,7 +34,7 @@
       const icon = this.$options.lib[camelcase(this.name)];
 
       if (typeof icon === 'undefined') {
-        console.error('Name of the icon is not correct');
+        console.error(`[${this.name}] Name of the icon is not correct`);
 
         return;
       }
