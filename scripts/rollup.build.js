@@ -1,4 +1,6 @@
-export default[
+import VuePlugin from 'rollup-plugin-vue';
+
+export default [
 	{
 		input: 'src/index.js',
 		output: {
@@ -6,6 +8,9 @@ export default[
 			file: 'dist/vue-mdijs.umd.js',
 			format: 'umd'
 		},
+		plugins: [
+	    VuePlugin()
+	  ],
 		external: ['lodash.camelcase']
 	},
 	{
@@ -15,6 +20,9 @@ export default[
 			file: 'dist/vue-mdijs.esm.js',
 			format: 'esm'
 		},
+		plugins: [
+	    VuePlugin()
+	  ],
 		external: ['lodash.camelcase']
 	}
 ]
