@@ -49,7 +49,7 @@
 
   function render(_ctx, _cache, $props, $setup, $data, $options) {
     return (vue.openBlock(), vue.createBlock("svg", {
-      "view-box": "0 0 24 24",
+      viewBox: "0 0 24 24",
       fill: _ctx.fill,
       height: _ctx.size,
       width: _ctx.size,

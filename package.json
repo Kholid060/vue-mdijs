@@ -25,13 +25,10 @@
   "private": false,
   "devDependencies": {
     "@mdi/js": "^5.0.45",
-<<<<<<< HEAD
-    "jest": "^26.1.0"
-=======
+    "jest": "^26.1.0",
     "@vue/compiler-sfc": "^3.0.0-rc.4",
     "jest": "^25.2.4",
     "rollup-plugin-vue": "^6.0.0-beta.9"
->>>>>>> change component to sfc
   },
   "dependencies": {
     "lodash.camelcase": "^4.3.0"
