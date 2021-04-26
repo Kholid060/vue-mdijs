@@ -15,12 +15,16 @@ yarn add @mdi/js vue-mdijs
 ## Usage
 main.js
 ```js
-import Vue from 'vue'
-import VueMdijs from 'vue-mdijs'
-import { mdiMagnify } from '@mdi/js'
+import { createApp } from 'vue';
+import App from './app.vue';
+import VueMdijs from 'vue-mdijs';
+import { mdiMagnify } from '@mdi/js';
 
-VueMdijs.add({ mdiMagnify })
-Vue.use(VueMdijs)
+const app = createApp(App);
+
+VueMdijs.add({ mdiMagnify });
+
+app.use(VueMdijs);
 ```
 app.vue
 ```html

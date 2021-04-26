@@ -45,16 +45,16 @@ const _hoisted_1 = { key: 0 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (openBlock(), createBlock("svg", {
     viewBox: "0 0 24 24",
-    fill: _ctx.fill,
-    height: _ctx.size,
-    width: _ctx.size,
+    fill: $props.fill,
+    height: $props.size,
+    width: $props.size,
     class: "mdi-icon",
     style: { transform: `rotate(${this.rotate}deg)`, display: 'inline-block' }
   }, [
-    (_ctx.title)
-      ? (openBlock(), createBlock("title", _hoisted_1, toDisplayString(_ctx.title), 1 /* TEXT */))
+    ($props.title)
+      ? (openBlock(), createBlock("title", _hoisted_1, toDisplayString($props.title), 1 /* TEXT */))
       : createCommentVNode("v-if", true),
-    createVNode("path", { d: _ctx.icon }, null, 8 /* PROPS */, ["d"])
+    createVNode("path", { d: $options.icon }, null, 8 /* PROPS */, ["d"])
   ], 12 /* STYLE, PROPS */, ["fill", "height", "width"]))
 }
 
@@ -64,8 +64,8 @@ script.__file = "src/components/vue-mdijs.vue";
 const VMdi = script;
 
 var index = {
-	install(Vue){
-		Vue.component(script.name, script);
+	install(app){
+		app.component(script.name, script);
 	},
 	add(icons){
 		script.add(icons);
