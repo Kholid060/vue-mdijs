@@ -1,10 +1,14 @@
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('lodash.camelcase'), require('vue')) :
-  typeof define === 'function' && define.amd ? define(['exports', 'lodash.camelcase', 'vue'], factory) :
-  (global = global || self, factory(global['vue-mdijs'] = {}, global.camelcase, global.vue));
-}(this, (function (exports, camelcase, vue) { 'use strict';
+  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('lodash.camelcase')) :
+  typeof define === 'function' && define.amd ? define(['exports', 'lodash.camelcase'], factory) :
+  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global['vue-mdijs'] = {}, global.camelcase));
+}(this, (function (exports, camelcase) { 'use strict';
 
-  camelcase = camelcase && Object.prototype.hasOwnProperty.call(camelcase, 'default') ? camelcase['default'] : camelcase;
+  function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
+
+  var camelcase__default = /*#__PURE__*/_interopDefaultLegacy(camelcase);
+
+  //
 
   var script = {
     name: 'v-mdi',
@@ -32,7 +36,7 @@
     },
     computed: {
       icon() {
-        const icon = this.$options.lib[camelcase(this.name)];
+        const icon = this.$options.lib[camelcase__default['default'](this.name)];
 
         if (typeof icon === 'undefined') {
           console.error(`[${this.name}] Name of the icon is incorrect`);
@@ -45,35 +49,151 @@
     }
   };
 
-  const _hoisted_1 = { key: 0 };
-
-  function render(_ctx, _cache, $props, $setup, $data, $options) {
-    return (vue.openBlock(), vue.createBlock("svg", {
-      viewBox: "0 0 24 24",
-      fill: _ctx.fill,
-      height: _ctx.size,
-      width: _ctx.size,
-      class: "mdi-icon",
-      style: { transform: `rotate(${this.rotate}deg)`, display: 'inline-block' }
-    }, [
-      (_ctx.title)
-        ? (vue.openBlock(), vue.createBlock("title", _hoisted_1, vue.toDisplayString(_ctx.title), 1 /* TEXT */))
-        : vue.createCommentVNode("v-if", true),
-      vue.createVNode("path", { d: _ctx.icon }, null, 8 /* PROPS */, ["d"])
-    ], 12 /* STYLE, PROPS */, ["fill", "height", "width"]))
+  function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier /* server only */, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
+      if (typeof shadowMode !== 'boolean') {
+          createInjectorSSR = createInjector;
+          createInjector = shadowMode;
+          shadowMode = false;
+      }
+      // Vue.extend constructor export interop.
+      const options = typeof script === 'function' ? script.options : script;
+      // render functions
+      if (template && template.render) {
+          options.render = template.render;
+          options.staticRenderFns = template.staticRenderFns;
+          options._compiled = true;
+          // functional template
+          if (isFunctionalTemplate) {
+              options.functional = true;
+          }
+      }
+      // scopedId
+      if (scopeId) {
+          options._scopeId = scopeId;
+      }
+      let hook;
+      if (moduleIdentifier) {
+          // server build
+          hook = function (context) {
+              // 2.3 injection
+              context =
+                  context || // cached call
+                      (this.$vnode && this.$vnode.ssrContext) || // stateful
+                      (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext); // functional
+              // 2.2 with runInNewContext: true
+              if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+                  context = __VUE_SSR_CONTEXT__;
+              }
+              // inject component styles
+              if (style) {
+                  style.call(this, createInjectorSSR(context));
+              }
+              // register component module identifier for async chunk inference
+              if (context && context._registeredComponents) {
+                  context._registeredComponents.add(moduleIdentifier);
+              }
+          };
+          // used by ssr in case component is cached and beforeCreate
+          // never gets called
+          options._ssrRegister = hook;
+      }
+      else if (style) {
+          hook = shadowMode
+              ? function (context) {
+                  style.call(this, createInjectorShadow(context, this.$root.$options.shadowRoot));
+              }
+              : function (context) {
+                  style.call(this, createInjector(context));
+              };
+      }
+      if (hook) {
+          if (options.functional) {
+              // register for functional component in vue file
+              const originalRender = options.render;
+              options.render = function renderWithStyleInjection(h, context) {
+                  hook.call(context);
+                  return originalRender(h, context);
+              };
+          }
+          else {
+              // inject component registration as beforeCreate hook
+              const existing = options.beforeCreate;
+              options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
+          }
+      }
+      return script;
   }
 
-  script.render = render;
-  script.__file = "src/components/vue-mdijs.vue";
+  /* script */
+  const __vue_script__ = script;
 
-  const VMdi = script;
+  /* template */
+  var __vue_render__ = function() {
+    var _vm = this;
+    var _h = _vm.$createElement;
+    var _c = _vm._self._c || _h;
+    return _c(
+      "svg",
+      {
+        staticClass: "mdi-icon",
+        style: {
+          transform: "rotate(" + this.rotate + "deg)",
+          display: "inline-block"
+        },
+        attrs: {
+          viewBox: "0 0 24 24",
+          fill: _vm.fill,
+          height: _vm.size,
+          width: _vm.size
+        }
+      },
+      [
+        _vm.title ? _c("title", [_vm._v(_vm._s(_vm.title))]) : _vm._e(),
+        _vm._v(" "),
+        _c("path", { attrs: { d: _vm.icon } })
+      ]
+    )
+  };
+  var __vue_staticRenderFns__ = [];
+  __vue_render__._withStripped = true;
+
+    /* style */
+    const __vue_inject_styles__ = undefined;
+    /* scoped */
+    const __vue_scope_id__ = undefined;
+    /* module identifier */
+    const __vue_module_identifier__ = undefined;
+    /* functional template */
+    const __vue_is_functional_template__ = false;
+    /* style inject */
+    
+    /* style inject SSR */
+    
+    /* style inject shadow dom */
+    
+
+    
+    const __vue_component__ = /*#__PURE__*/normalizeComponent(
+      { render: __vue_render__, staticRenderFns: __vue_staticRenderFns__ },
+      __vue_inject_styles__,
+      __vue_script__,
+      __vue_scope_id__,
+      __vue_is_functional_template__,
+      __vue_module_identifier__,
+      false,
+      undefined,
+      undefined,
+      undefined
+    );
+
+  const VMdi = __vue_component__;
 
   var index = {
   	install(Vue){
-  		Vue.component(script.name, script);
+  		Vue.component(__vue_component__.name, __vue_component__);
   	},
   	add(icons){
-  		script.add(icons);
+  		__vue_component__.add(icons);
   	}
   };
 
