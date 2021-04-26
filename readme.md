@@ -6,19 +6,19 @@ Vue component wrapper for [@mdi/js](https://www.npmjs.com/package/@mdi/js)
 ## Installation
 ```
 // NPM
-npm i @mdi/js vue-mdijs
+npm i @mdi/js vue-mdijs@next
 
 // Yarn
-yarn add @mdi/js vue-mdijs
+yarn add @mdi/js vue-mdijs@next
 ```
 
 ## Usage
 main.js
 ```js
 import { createApp } from 'vue';
-import App from './app.vue';
 import VueMdijs from 'vue-mdijs';
 import { mdiMagnify } from '@mdi/js';
+import App from './app.vue';
 
 const app = createApp(App);
 
