@@ -4,6 +4,7 @@
 Vue component wrapper for [@mdi/js](https://www.npmjs.com/package/@mdi/js)
 
 ## Installation
+If you're using **Vue 3** [click here](https://github.com/kholid060/vue-mdijs/tree/next)
 ```
 // NPM
 npm i @mdi/js vue-mdijs
