@@ -1,6 +1,6 @@
 {
   "name": "vue-mdijs",
-  "version": "0.4.25",
+  "version": "0.4.26",
   "description": "Vue component wrapper for @mdi/js",
   "keywords": [
     "vue",
