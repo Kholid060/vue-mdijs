@@ -32,6 +32,10 @@ export default {
       type: Number,
       default: 0
     },
+    path: {
+      type: String,
+      default: '',
+    },
   },
   lib: {},
   add(icons) {
@@ -41,6 +45,8 @@ export default {
   },
   computed: {
     icon() {
+      if (this.path) return path;
+
       const icon = this.$options.lib[camelcase(this.name)];
 
       if (typeof icon === 'undefined') {

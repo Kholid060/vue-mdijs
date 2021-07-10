@@ -18,6 +18,10 @@ var script = {
       type: Number,
       default: 0
     },
+    path: {
+      type: String,
+      default: '',
+    },
   },
   lib: {},
   add(icons) {
@@ -27,6 +31,8 @@ var script = {
   },
   computed: {
     icon() {
+      if (this.path) return path;
+
       const icon = this.$options.lib[camelcase(this.name)];
 
       if (typeof icon === 'undefined') {
