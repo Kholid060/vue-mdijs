@@ -11,6 +11,6 @@ export default [
 		plugins: [
 	    VuePlugin()
 	  ],
-		external: ['lodash.camelcase', 'vue']
+		external: ['vue']
 	}
 ]

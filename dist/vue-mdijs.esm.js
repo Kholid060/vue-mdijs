@@ -1,4 +1,3 @@
-import camelcase from 'lodash.camelcase';
 import { openBlock, createBlock, toDisplayString, createCommentVNode, createVNode } from 'vue';
 
 var script = {
@@ -33,7 +32,7 @@ var script = {
     icon() {
       if (this.path) return path;
 
-      const icon = this.$options.lib[camelcase(this.name)];
+      const icon = this.$options.lib[this.toCamelCase(this.name)];
 
       if (typeof icon === 'undefined') {
         console.error(`[${this.name}] Name of the icon is incorrect`);
@@ -43,7 +42,16 @@ var script = {
 
       return icon;
     }
-  }
+  },
+  methods: {
+    toCamelCase(str) {
+      const result = str.replace(/(?:^\w|[A-Z]|\b\w)/g, (letter, index) => {
+        return index === 0 ? letter.toLowerCase() : letter.toUpperCase();
+      });
+
+      return result.replace(/\s+|[-]/g, '');
+    },
+  },
 };
 
 const _hoisted_1 = { key: 0 };
