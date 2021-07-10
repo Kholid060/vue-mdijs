@@ -1,6 +1,6 @@
 {
   "name": "vue-mdijs",
-  "version": "0.5.1",
+  "version": "0.5.12",
   "description": "Vue component wrapper for @mdi/js",
   "keywords": [
     "vue",
@@ -18,7 +18,6 @@
     "build": "rollup --config scripts/rollup.build.js",
     "publish-package": "npm run build && npm publish"
   },
-  "main": "dist/vue-mdijs.umd.js",
   "module": "dist/vue-mdijs.esm.js",
   "author": "Ahmad Kholid <Kholid060@gmail.com>",
   "license": "MIT",
@@ -29,7 +28,5 @@
     "rollup-plugin-vue": "^6.0.0",
     "vue": "^3.1.4"
   },
-  "dependencies": {
-    "lodash.camelcase": "^4.3.0"
-  }
+  "dependencies": {}
 }
