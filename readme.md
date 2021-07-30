@@ -32,6 +32,23 @@ app.vue
     </div>
 </template>
 ```
+### With `path` prop
+```html
+<template>
+    <v-mdi :path="mdiMagnify"></v-mdi>
+</template>
+<script>
+import { mdiMagnify } from '@mdi/js';
+
+export default {
+    setup() {
+        return {
+            mdiMagnify,
+        };
+    },
+};
+</script>
+```
 
 ## Props
 
@@ -39,6 +56,7 @@ app.vue
 |---|---|--- | --- | --- |
 |`name`  | String  | `String` | `null`  | - |
 |  `size` | Icon size  | `String`, `Number` | `24` | - |
+| `path` | Icon path | `String` | `null` | - |
 | `title` | A11y SVG Title | `String` | `null` | - |
 | `fill` | Color of icon | `String` | `currentColor` | `rgb()`/`rgba()`/`#000` |
 | `rotate` | Icon rotation | `Number` | `null` | `0` to `360` |

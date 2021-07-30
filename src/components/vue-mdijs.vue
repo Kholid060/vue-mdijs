@@ -13,8 +13,6 @@
 </template>
 
 <script>
-import camelcase from 'lodash.camelcase';
-
 export default {
   name: 'v-mdi',
   props: {
@@ -32,6 +30,10 @@ export default {
       type: Number,
       default: 0
     },
+    path: {
+      type: String,
+      default: '',
+    },
   },
   lib: {},
   add(icons) {
@@ -41,16 +43,26 @@ export default {
   },
   computed: {
     icon() {
-      const icon = this.$options.lib[camelcase(this.name)];
-
+      if (this.path) return path;
+      
+      const icon = this.$options.lib[this.toCamelCase(this.name)];
+      
       if (typeof icon === 'undefined') {
         console.error(`[${this.name}] Name of the icon is incorrect`);
-
         return;
       }
 
       return icon;
     }
-  }
+  },
+  methods: {
+    toCamelCase(str) {
+      const result = str.replace(/(?:^\w|[A-Z]|\b\w)/g, (letter, index) => {
+        return index === 0 ? letter.toLowerCase() : letter.toUpperCase();
+      });
+      
+      return result.replace(/\s+|[-]/g, '');
+    },
+  },
 };
 </script>

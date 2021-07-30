@@ -1,5 +1,16 @@
-import camelcase from 'lodash.camelcase';
-
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 
 var script = {
@@ -19,6 +30,10 @@ var script = {
       type: Number,
       default: 0
     },
+    path: {
+      type: String,
+      default: '',
+    },
   },
   lib: {},
   add(icons) {
@@ -28,17 +43,27 @@ var script = {
   },
   computed: {
     icon() {
-      const icon = this.$options.lib[camelcase(this.name)];
-
+      if (this.path) return path;
+      
+      const icon = this.$options.lib[this.toCamelCase(this.name)];
+      
       if (typeof icon === 'undefined') {
         console.error(`[${this.name}] Name of the icon is incorrect`);
-
         return;
       }
 
       return icon;
     }
-  }
+  },
+  methods: {
+    toCamelCase(str) {
+      const result = str.replace(/(?:^\w|[A-Z]|\b\w)/g, (letter, index) => {
+        return index === 0 ? letter.toLowerCase() : letter.toUpperCase();
+      });
+      
+      return result.replace(/\s+|[-]/g, '');
+    },
+  },
 };
 
 function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier /* server only */, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
@@ -189,5 +214,4 @@ var index = {
 	}
 };
 
-export default index;
-export { VMdi };
+export { VMdi, index as default };

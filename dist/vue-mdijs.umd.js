@@ -1,13 +1,22 @@
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('lodash.camelcase')) :
-  typeof define === 'function' && define.amd ? define(['exports', 'lodash.camelcase'], factory) :
-  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global['vue-mdijs'] = {}, global.camelcase));
-}(this, (function (exports, camelcase) { 'use strict';
+  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
+  typeof define === 'function' && define.amd ? define(['exports'], factory) :
+  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global['vue-mdijs'] = {}));
+}(this, (function (exports) { 'use strict';
 
-  function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
-
-  var camelcase__default = /*#__PURE__*/_interopDefaultLegacy(camelcase);
-
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
   //
 
   var script = {
@@ -27,6 +36,10 @@
         type: Number,
         default: 0
       },
+      path: {
+        type: String,
+        default: '',
+      },
     },
     lib: {},
     add(icons) {
@@ -36,17 +49,27 @@
     },
     computed: {
       icon() {
-        const icon = this.$options.lib[camelcase__default['default'](this.name)];
-
+        if (this.path) return path;
+        
+        const icon = this.$options.lib[this.toCamelCase(this.name)];
+        
         if (typeof icon === 'undefined') {
           console.error(`[${this.name}] Name of the icon is incorrect`);
-
           return;
         }
 
         return icon;
       }
-    }
+    },
+    methods: {
+      toCamelCase(str) {
+        const result = str.replace(/(?:^\w|[A-Z]|\b\w)/g, (letter, index) => {
+          return index === 0 ? letter.toLowerCase() : letter.toUpperCase();
+        });
+        
+        return result.replace(/\s+|[-]/g, '');
+      },
+    },
   };
 
   function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier /* server only */, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
@@ -198,7 +221,7 @@
   };
 
   exports.VMdi = VMdi;
-  exports.default = index;
+  exports['default'] = index;
 
   Object.defineProperty(exports, '__esModule', { value: true });
 
